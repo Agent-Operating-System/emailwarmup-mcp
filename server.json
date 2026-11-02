@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "ai.bobwork/emailwarmup",
+  "description": "Warm up mailboxes, check the ready-for-outbound gate, run cold email and get checkout links.",
+  "version": "1.0.0",
+  "websiteUrl": "https://emailwarmup.bobwork.ai/",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://app-emailwarmup.bobwork.ai/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "BobWork Email Warm-up API key (bwk_...). An agent can get one with no browser: POST https://app-emailwarmup.bobwork.ai/api/v1/signup/code then /signup/verify.",
+          "isRequired": true,
+          "isSecret": true,
+          "value": "Bearer {api_key}",
+          "variables": {
+            "api_key": {
+              "description": "API key (bwk_...)",
+              "isRequired": true,
+              "isSecret": true
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Agent-Operating-System/emailwarmup-mcp",
+    "source": "github"
+  }
+}
